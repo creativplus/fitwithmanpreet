@@ -11,21 +11,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1415678120140779');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
-/></noscript>
-<style>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1415678120140779');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
+    /></noscript>
+    <style>
         /* -----------------------------------------------------------
            ROOT & RESET
         ----------------------------------------------------------- */
@@ -126,7 +126,7 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
         }
         .btn-secondary:hover { background: rgba(0, 255, 106, 0.1); }
 
-        /* NEW: CTA INFO BLOCK (Guarantee + Seats) */
+        /* CTA INFO BLOCK */
         .cta-info {
             margin-top: 15px;
             text-align: center;
@@ -192,7 +192,8 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
             border-radius: 12px; border: 1px solid #333;
             box-shadow: 0 0 30px rgba(0, 255, 106, 0.15); margin-bottom: 25px; background: #000;
         }
-        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 12px; }
+        /* Iframe styling for API player */
+        .video-wrapper div, .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 12px; }
 
         .trust-badges { margin-top: 15px; font-size: 0.7rem; color: #777; display: flex; justify-content: center; gap: 15px; }
 
@@ -243,7 +244,7 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
         .check-list i { color: var(--accent); margin-right: 10px; margin-top: 4px; flex-shrink: 0; }
 
         /* -----------------------------------------------------------
-           SCROLLERS (GENERIC) - Used for Reviews & Transformations
+           SCROLLERS (GENERIC)
         ----------------------------------------------------------- */
         .scroller-wrapper {
             width: 100%; overflow-x: auto; overflow-y: hidden;
@@ -258,15 +259,10 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
         .swipe-hint { color: #666; font-size: 0.8rem; animation: bounce-x 1.5s infinite; display: block; margin-bottom: 10px; }
         @keyframes bounce-x { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(5px); } }
 
-        /* UNIFORM SIZING FOR ALL SLIDER ITEMS
-           We use fixed width/height + object-fit: cover to ensure perfectly equal shapes.
-           Size: 280px Width x 500px Height (Typical Mobile Screenshot Ratio)
-        */
-        
-        /* VIDEO ITEMS */
+        /* UNIFORM SIZING FOR SLIDER ITEMS (280px x 500px) */
         .testimonial-vid {
             flex-shrink: 0; 
-            width: 280px; height: 500px; /* Fixed Size */
+            width: 280px; height: 500px;
             background: #111; border-radius: 12px; padding: 0; border: 1px solid #333;
             transition: transform 0.3s; overflow: hidden; position: relative;
         }
@@ -274,14 +270,12 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
         .video-container { width: 100%; height: 100%; position: relative; }
         .testimonial-vid video { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; background: #000; pointer-events: none; }
         
-        /* Volume button styling */
         .vid-btn { position: absolute; background: rgba(0,0,0,0.6); color: #fff; border: 1px solid var(--accent); border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2; backdrop-filter: blur(2px); }
         .mute-btn { bottom: 10px; right: 10px; width: 30px; height: 30px; border: none; font-size: 0.8rem; }
         
-        /* IMAGE ITEMS */
         .transform-item {
             flex-shrink: 0; 
-            width: 280px; height: 500px; /* Exact same size as video */
+            width: 280px; height: 500px;
             background: transparent; 
             border-radius: 12px; 
             padding: 0; 
@@ -294,7 +288,7 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
         .transform-item:hover { transform: scale(1.02); }
         .transform-item img { 
             width: 100%; height: 100%;
-            object-fit: cover; /* Ensures image fills shape perfectly */
+            object-fit: cover; 
             display: block; 
             border-radius: 12px; 
             border: 1px solid #222;
@@ -408,9 +402,11 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
                 
                 <div class="point-item"><i class="fas fa-bolt"></i> Fast Results</div>
             </div>
+            
             <div class="video-wrapper reveal delay-200">
-                <iframe src="https://www.youtube.com/embed/2E7-SATrKPw?rel=0&modestbranding=1&controls=1" title="Coach Manpreet Transformation" frameborder="0" allowfullscreen></iframe>
+                <div id="hero-video"></div>
             </div>
+            
             <div class="reveal delay-200">
                 <a href="https://superprofile.bio/vig/68e78bc9e672e10013e6488c" class="btn-primary" onclick="fbq('track', 'InitiateCheckout');">Start Transformation</a>
                 
@@ -438,7 +434,6 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
             </div>
             <div class="section-cta reveal delay-200">
                 <a href="https://superprofile.bio/vig/68e78bc9e672e10013e6488c" class="btn-primary">Fix This Today</a>
-                
                 <div class="cta-info">
                     <span class="cta-guarantee"><i class="fas fa-shield-alt"></i> 15-Day Money Back Guarantee</span>
                     <span class="cta-seats">⏳ Only <strong style="color:#fff;">few seats</strong> available for this year-2026</span>
@@ -462,7 +457,7 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
     <section id="about-coach">
         <div class="container">
             <div class="coach-container reveal">
-                <img src="profile.png" alt="Coach Manpreet" class="coach-img">
+                <img src="profile.png" alt="Coach Manpreet" class="coach-img" loading="lazy">
                 <div class="coach-bio text-center">
                     <h2 class="text-accent uppercase text-bold">Coach Manpreet</h2>
                     <p class="text-muted" style="font-size: 0.9rem; margin-top: 10px;">I used to be overweight, confused, and tired. After losing 25kgs, I dedicated my career to helping others.<br><br>I don't believe in starvation diets. I believe in <strong>sustainable lifestyle changes</strong> that fit your busy Indian schedule.</p>
@@ -516,7 +511,6 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
                 
                 <div style="margin-top: 30px;">
                     <a href="https://superprofile.bio/vig/68e78bc9e672e10013e6488c" class="btn-primary">Get Access Now</a>
-                    
                     <div class="cta-info">
                         <span class="cta-guarantee"><i class="fas fa-shield-alt"></i> 15-Day Money Back Guarantee</span>
                         <span class="cta-seats">⏳ Only <strong style="color:#fff;">few seats</strong> available for this year-2026</span>
@@ -538,7 +532,6 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
 
             <div class="section-cta reveal delay-200">
                 <a href="https://superprofile.bio/vig/68e78bc9e672e10013e6488c" class="btn-primary">I Want Results Like These</a>
-                
                 <div class="cta-info">
                     <span class="cta-guarantee"><i class="fas fa-shield-alt"></i> 15-Day Money Back Guarantee</span>
                     <span class="cta-seats">⏳ Only <strong style="color:#fff;">few seats</strong> available for this year-2026</span>
@@ -568,7 +561,7 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
                     <span class="premium-badge">FLAT 70% OFF</span>
                     <h2 class="uppercase text-bold text-white">Ultimate Plan</h2>
                     <div class="price-old">₹4,000</div>
-                    <div class="price-new">₹1,180</div>
+                    <div class="price-new">₹1,179</div>
                     <div class="price-sub">/ Month</div>
                     
                     <p style="margin-top:5px; font-size:0.85rem; color:#bbb;">Just <strong style="color:var(--accent);">₹39/day</strong> — less than a cup of chai</p>
@@ -596,7 +589,7 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
                 </div>
                 <div class="pricing-footer">
                     <div class="countdown">⚡ LAST FEW SEATS LEFT!</div>
-                    <a href="https://superprofile.bio/vig/68e78bc9e672e10013e6488c" class="btn-primary">JOIN NOW @ ₹1,180</a>
+                    <a href="https://superprofile.bio/vig/68e78bc9e672e10013e6488c" class="btn-primary">JOIN NOW @ ₹1,179</a>
                     
                     <div class="cta-info">
                         <span class="cta-guarantee"><i class="fas fa-shield-alt"></i> 15-Day Money Back Guarantee</span>
@@ -613,18 +606,13 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
         <div class="container">
             <h3 class="text-center text-bold uppercase reveal" style="margin-bottom: 25px;">Inside Our <span class="text-accent">WhatsApp Groups</span></h3>
             <div class="masonry reveal delay-200">
-                <div class="masonry-item"><img src="ss1.png" alt="Proof 1"></div>
-                <div class="masonry-item"><img src="ss2.png" alt="Proof 2"></div>
-                <div class="masonry-item"><img src="ss3.png" alt="Proof 3"></div>
-                <div class="masonry-item"><img src="ss4.png" alt="Proof 4"></div>
-                <div class="masonry-item"><img src="ss5.png" alt="Proof 5"></div>
-                <div class="masonry-item"><img src="ss6.png" alt="Proof 6"></div>
-                <div class="masonry-item"><img src="ss7.png" alt="Proof 7"></div>
-                <div class="masonry-item"><img src="ss8.png" alt="Proof 8"></div>
+                <div class="masonry-item"><img src="ss1.png" alt="Proof 1" loading="lazy"></div>
+                <div class="masonry-item"><img src="ss2.png" alt="Proof 2" loading="lazy"></div>
+                <div class="masonry-item"><img src="ss3.png" alt="Proof 3" loading="lazy"></div>
+                <div class="masonry-item"><img src="ss4.png" alt="Proof 4" loading="lazy"></div>
             </div>
             <div class="section-cta reveal delay-200">
                 <a href="https://superprofile.bio/vig/68e78bc9e672e10013e6488c" class="btn-primary">Join The Team</a>
-                
                 <div class="cta-info">
                     <span class="cta-guarantee"><i class="fas fa-shield-alt"></i> 15-Day Money Back Guarantee</span>
                     <span class="cta-seats">⏳ Only <strong style="color:#fff;">few seats</strong> available for this year-2026</span>
@@ -641,8 +629,7 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
     </footer>
 
     <div class="sticky-cta" id="stickyCta">
-        <a href="https://superprofile.bio/vig/68e78bc9e672e10013e6488c" class="btn-primary">Join Now @ ₹1,180</a>
-        
+        <a href="https://superprofile.bio/vig/68e78bc9e672e10013e6488c" class="btn-primary">Join Now @ ₹1,179</a>
         <div class="cta-info" style="margin-top: 5px; line-height: 1.2;">
             <span class="cta-guarantee" style="font-size: 0.6rem;"><i class="fas fa-shield-alt"></i> 15-Day Money Back Guarantee</span>
         </div>
@@ -654,7 +641,6 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
             <h2 class="text-accent uppercase">Are You Still Waiting!</h2>
             <p>Seats are filling fast. Lock your 70% discount now.</p>
             <a href="https://superprofile.bio/vig/68e78bc9e672e10013e6488c" class="btn-primary" style="width: 100%; margin-top: 20px;" onclick="closePopup()">Claim Offer</a>
-            
             <div class="cta-info">
                 <span class="cta-guarantee"><i class="fas fa-shield-alt"></i> 15-Day Money Back Guarantee</span>
                 <span class="cta-seats">⏳ Only <strong style="color:#fff;">few seats</strong> available for this year-2026</span>
@@ -662,8 +648,64 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
         </div>
     </div>
 
+    <script src="https://www.youtube.com/iframe_api"></script>
+
     <script>
-        // 1. Timer
+        // 1. YouTube API Logic (Smart Interaction Trigger)
+        var player;
+        var playerReady = false;
+        var videoStarted = false;
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('hero-video', {
+                videoId: '2E7-SATrKPw',
+                playerVars: {
+                    'autoplay': 0, 
+                    'controls': 1,
+                    'rel': 0,
+                    'playsinline': 1,
+                    'loop': 1,
+                    'playlist': '2E7-SATrKPw',
+                    'mute': 0 // We want it unmuted when it starts
+                },
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            playerReady = true;
+        }
+
+        // Global "Start & Unmute on First Interaction" Function
+        function startHeroVideo() {
+            // Only run if player is ready and we haven't started yet
+            if (playerReady && !videoStarted && player) {
+                videoStarted = true;
+                player.playVideo();
+                // Ensure audio is on
+                if(typeof player.unMute === 'function') {
+                    player.unMute();
+                    player.setVolume(100);
+                }
+                
+                // Remove listeners immediately so it doesn't trigger again
+                document.removeEventListener('click', startHeroVideo);
+                document.removeEventListener('scroll', startHeroVideo);
+                document.removeEventListener('touchstart', startHeroVideo);
+                document.removeEventListener('keydown', startHeroVideo);
+            }
+        }
+
+        // Add listeners for ANY user interaction
+        document.addEventListener('click', startHeroVideo);
+        document.addEventListener('scroll', startHeroVideo);
+        document.addEventListener('touchstart', startHeroVideo);
+        document.addEventListener('keydown', startHeroVideo);
+
+
+        // 2. Timer
         function updateTimer() {
             let deadline = localStorage.getItem('urgencyDeadline');
             const now = new Date().getTime();
@@ -681,7 +723,7 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
         }
         setInterval(updateTimer, 1000); updateTimer();
 
-        // 2. PERSISTENT SMART ENROLLMENT LOGIC
+        // 3. PERSISTENT SMART ENROLLMENT LOGIC
         const enrollDisplay = document.getElementById('enroll-count');
         const enrollBox = document.getElementById('enroll-box');
 
@@ -721,7 +763,7 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
         }
         setTimeout(increaseEnrollment, 5000);
 
-        // 3. Reveal Logic
+        // 4. Reveal Logic
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
         }, { threshold: 0.1 });
@@ -733,7 +775,7 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
             stickyCta.style.display = window.scrollY > hero.offsetHeight ? 'block' : 'none';
         });
 
-        // 4. Popup
+        // 5. Popup
         let popupShown = false;
         const popup = document.getElementById('exitPopup');
         document.addEventListener('mouseleave', (e) => { if (e.clientY < 0 && !popupShown) showPopup(); });
@@ -741,11 +783,11 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
         function showPopup() { popup.style.display = 'flex'; popupShown = true; }
         function closePopup() { popup.style.display = 'none'; }
 
-        // 5. HYBRID SCROLL ENGINE - MULTIPLE SLIDERS
+        // 6. HYBRID SCROLL ENGINE - MULTIPLE SLIDERS
         
         // --- DATA GENERATION ---
         
-        // A. TOP VIDEOS (ssv1 - ssv5) - UPDATED: Auto Play & No Poster/Text
+        // A. TOP VIDEOS (ssv1 - ssv5)
         let topVidHTML = '';
         for(let i=1; i<=5; i++) {
             topVidHTML += `
@@ -758,17 +800,17 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
         }
         document.getElementById('topVideoTrack').innerHTML = topVidHTML + topVidHTML;
 
-        // B. REAL RESULTS IMAGES (RR1 - RR6) - FIX: NO CAPTION
+        // B. REAL RESULTS IMAGES (RR1 - RR6)
         let imgHTML = '';
         for(let i=1; i<=6; i++) {
             imgHTML += `
             <div class="transform-item">
-                <img src="RR${i}.png" alt="Transformation ${i}" style="width:100%;">
+                <img src="RR${i}.png" alt="Transformation ${i}" style="width:100%;" loading="lazy">
             </div>`;
         }
         document.getElementById('imgTrack').innerHTML = imgHTML + imgHTML;
 
-        // C. BOTTOM VIDEOS (ssv6 - ssv9) - UPDATED: Auto Play & No Poster/Text
+        // C. BOTTOM VIDEOS (ssv6 - ssv9)
         let btmVidHTML = '';
         for(let i=6; i<=9; i++) {
             btmVidHTML += `
@@ -798,7 +840,6 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
                 this.wrapper.addEventListener('touchstart', () => this.isTouching = true);
                 this.wrapper.addEventListener('touchend', () => setTimeout(() => this.isTouching = false, 1000));
                 
-                // Recalculate width after a short delay to ensure content is loaded
                 setTimeout(() => {
                     this.originalWidth = this.track.scrollWidth / 2;
                 }, 1000);
@@ -839,7 +880,7 @@ src="https://www.facebook.com/tr?id=1415678120140779&ev=PageView&noscript=1"
             document.querySelectorAll('.desktop-only').forEach(el => el.style.display = 'flex');
         }
 
-        // 6. Particles
+        // 7. Particles
         const canvas = document.getElementById("particles-js");
         const ctx = canvas.getContext("2d");
         canvas.width = window.innerWidth; canvas.height = window.innerHeight;
